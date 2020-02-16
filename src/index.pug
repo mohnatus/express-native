@@ -1,22 +1,27 @@
-extends pug/layout/base.layout.pug
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Express Native
+  body
+    .page
+      .offset-line
+      .page-bg
 
-block content
-  .offset-line
-  .page-bg
+      include pug/partials/header.pug
+      include pug/screens/hello.screen.pug
+      include pug/screens/suggestions.screen.pug
+      include pug/screens/audience.screen.pug
+      include pug/screens/price.screen.pug
+      include pug/screens/order.screen.pug
+      include pug/partials/networks.pug
+      include pug/partials/scroller.pug
+      include pug/partials/mobile.menu.pug
+      include pug/partials/success.pug
 
-  include pug/partials/header.pug
-  include pug/screens/hello.screen.pug
-  include pug/screens/suggestions.screen.pug
-  include pug/screens/audience.screen.pug
-  include pug/screens/price.screen.pug
-  include pug/screens/order.screen.pug
-  include pug/partials/networks.pug
-  include pug/partials/scroller.pug
-  include pug/partials/mobile.menu.pug
-  include pug/partials/success.pug
+      footer.page-footer
+        span.copyright © 2020, Proglib
 
-  footer.page-footer
-    span.copyright © 2020, Proglib
-
-block javascript
-  script(src="app.js" async)
+      script(src="app.js" async)
