@@ -1,0 +1,139 @@
+.screen[data-screen='order'] {
+	height: auto;
+	padding-bottom: 80px;
+}
+
+.order-sections {
+	display: flex;
+}
+
+.tabs {
+	@include cols(3, 10);
+}
+
+.tab {
+	display: flex;
+	&__control {
+		width: 36px;
+		padding-top: 8px;
+		flex-shrink: 0;
+	}
+
+	input {
+		position: absolute;
+		opacity: 0;
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		border: none;
+		box-shadow: 0;
+		outline: none;
+		clip-path: 0 0 0 0;
+	}
+
+	.card {
+		padding-right: 50px;
+		&__content {
+			display: none;
+		}
+	}
+}
+
+input:checked ~ .tab__content {
+	.card {
+		&__content {
+			display: block;
+		}
+	}
+}
+
+.order-form {
+	@include cols(7, 10);
+
+	padding-left: 80px;
+
+	&__title {
+		font-size: 1.5rem;
+		margin-bottom: 65px;
+	}
+}
+
+@include bp(xLargeTop) {
+	.tabs {
+		width: 400px;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+
+	.tab {
+		&__control {
+			padding-top: 4px;
+		}
+		.card {
+			font-size: 0.875rem;
+			padding-right: 40px;
+
+			&__title {
+				font-size: 1.125rem;
+			}
+
+			&__price {
+				font-size: 1.125rem;
+			}
+		}
+	}
+
+	.order-form {
+		width: auto;
+		flex-grow: 1;
+	}
+}
+
+@include bp(largeBottom) {
+	.tabs {
+		width: 360px;
+	}
+
+	.order-form {
+	}
+}
+
+@include bp(mediumBottom) {
+	.tabs {
+		width: 100%;
+
+		.card {
+			padding-left: 0px;
+			padding-right: 0;
+		}
+	}
+	.tab {
+		&__control {
+			width: 26px;
+			padding-top: 0;
+		}
+		.card {
+			&__title {
+				font-size: 0.875rem;
+				font-weight: normal;
+			}
+		}
+	}
+
+	.order-sections {
+		display: block;
+	}
+
+	.order-form {
+		padding-left: 0;
+		margin-top: 40px;
+
+		&__title {
+			font-size: 0.875rem;
+		}
+	}
+
+  .screen[data-screen="order"] {
+    padding-bottom: 20px;
+  }
+}

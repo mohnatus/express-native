@@ -1,0 +1,120 @@
+.stat-item {
+  &__value {
+    font-size: 6rem;
+    font-family: $fontHeader;
+    color: $colorAccent;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+}
+
+.chart {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  &__img {
+    position: relative;
+
+    img {
+      width: 260px;
+      height: 260px;
+    }
+  }
+
+  &--small {
+    .chart__img img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  &__data {
+    padding-left: 35px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    line-height: 1.2;
+    font-weight: 500;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+@each $chart, $items in $charts {
+  .chart--#{$chart} {
+    .chart__item {
+
+      @each $index, $color in $items {
+        &:nth-of-type(#{$index}) {
+          &:before {
+            background-color: $color;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@include bp(xLargeTop) {
+  .stat-item {
+    &__value {
+      font-size: 4rem;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@include bp(mediumBottom) {
+
+  .stat-item {
+    &__value {
+      font-size: 2.25rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  .chart {
+    flex-wrap: wrap;
+    &__data {
+      margin-top: 20px;
+      padding: 0;
+    }
+
+    &__img {
+      margin-right: 20px;
+      img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    &__label {
+      font-size: 0.875rem;
+    }
+  }
+}

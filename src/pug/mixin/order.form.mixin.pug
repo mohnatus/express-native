@@ -1,0 +1,45 @@
+mixin orderForm(orderType, action)
+  - var style = 'display: none'
+  - var button = 'Задать вопрос'
+  if orderType == 'native'
+    - var style = ''
+    - var button = 'Хочу экспресс-натив'
+  else if orderType == 'test'
+    - var button = 'Хочу тест'
+  else if orderType == 'game'
+    - var button = 'Хочу игру'
+
+  form.form(action=action data-order-form data-type=orderType style=style)
+    .invalid-feedback.invalid-feedback--form
+
+    input(type="hidden" name="type" value=orderType)
+
+    if orderType == 'other'
+      <label class="form-field form-field--short">
+        <input type="email" class="input" placeholder="E-mail" name="email" required>
+        <div class="invalid-feedback"></div>
+      </label>
+
+      <label class="form-field ">
+        <textarea type="email" ≈ class="textarea" rows="4" placeholder="Опишите ваш вопрос/предложение" name="question" required></textarea>
+        <div class="invalid-feedback"></div>
+      </label>
+
+    else
+      <label class="form-field form-field--short">
+        <input type="text" class="input" placeholder="Название компании" name="company" required>
+        <div class="invalid-feedback"></div>
+      </label>
+      <label class="form-field form-field--short">
+        <input type="text" class="input" placeholder="ФИО" name="name" required>
+        <div class="invalid-feedback"></div>
+      </label>
+      <label class="form-field form-field--short">
+        <input type="text" class="input" placeholder="Номер телефона" name="phone" required>
+        <div class="invalid-feedback"></div>
+      </label>
+
+    button.btn(type="submit") #{button}
+
+    footer.form__footer
+      |Нажимая на кнопку #{button}, , вы соглашаетесь с <a href="#" target="_blank">Правилами пользования сайтом</a> и даете согласие на <a  href="#"  target="_blank">Обработку персональных данных</a>.

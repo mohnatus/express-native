@@ -1,20 +1,18 @@
 {
-  "name": "parcel-starter",
+  "name": "proglib-express-native",
   "version": "1.0.0",
-  "description": "Frontend project starter with Parcel",
+  "description": "Landing page",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clear": "rmdir -r dist",
-    "clear:cache": "rmdir -r .cache",
+    "clear": "rmdir /s/q dist",
+    "clear:cache": "rmdir /s/q .cache",
     "start": "parcel src/index.pug --open",
-    "build": "parcel build src/index.pug"
+    "build": "parcel build src/index.pug --public-url .",
+    "build:clear": "npm run clear && npm run clear:cache && npm run build"
   },
   "keywords": [
-    "parcel",
-    "starter",
-    "template",
-    "bundler"
+    "landing page"
   ],
   "author": "FurryCat",
   "license": "ISC",
@@ -32,5 +30,9 @@
     "postcss-modules": "^1.5.0",
     "pug": "^2.0.4",
     "sass": "^1.25.0"
+  },
+  "dependencies": {
+    "accordion-js": "^2.8.0",
+    "embla-carousel": "^2.7.4"
   }
 }

@@ -1,0 +1,174 @@
+body {
+  background-color: $bgColor;
+}
+
+.page {
+  overflow: hidden;
+}
+
+.screen {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  min-height: 1000px;
+  padding-top: 170px;
+  padding-bottom: 70px;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.offset {
+  @include cols(2, 12);
+}
+
+.content {
+
+  @include cols(10, 12);
+}
+
+.offset-line {
+  position: fixed;
+  top: 207px;
+  left: 0;
+  width: 260px;
+  height: 3px;
+  border-radius: 0 2px 2px 0;
+  background: black;
+  transition: top 400ms;
+  z-index: 30;
+
+  body[data-screen="hello"] & {
+    top: 370px;
+  }
+}
+
+.page-bg {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  @include cols(7,12);
+  background: $lightBgColor;
+  display: none;
+
+  body[data-screen="order"] & {
+    display: block;
+  }
+}
+
+
+@include bp(xLargeTop) {
+  .offset {
+    min-width: 80px;
+    width: calc(50% - 650px);
+    flex-shrink: 0;
+  }
+
+  .content {
+    width: 1300px;
+    padding-left: 50px;
+  }
+
+  .offset-line {
+    width: 70px;
+
+    body[data-screen="hello"] & {
+      top: 250px;
+    }
+  }
+
+  .page-bg {
+    width: calc(50% + 650px - 500px);
+  }
+}
+
+@include bp(xLargeBottom) {
+  .offset {
+    width: calc(50% - 570px);
+  }
+
+  .content {
+    width: 1140px;
+  }
+
+  .page-bg {
+    width: calc(50% + 570px - 500px);
+  }
+}
+
+@include bp(largeBottom) {
+  .offset-line {
+    body[data-screen="hello"] & {
+      top: 153px;
+    }
+  }
+
+  .offset {
+    width: calc(50% - 430px);
+  }
+
+  .screen {
+    min-height: 0;
+    height: auto;
+
+  }
+
+  .content {
+    width: 860px;
+  }
+
+  .page-bg {
+    width: calc(50% + 430px - 460px);
+  }
+}
+
+@include bp(mediumBottom) {
+  .screen {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    &__title {
+      position: relative;
+
+      &:before {
+        content: '';
+        height: 3px;
+        width: 20px;
+        position: absolute;
+        right: 100%;
+        margin-right: 10px;
+        z-index: 30;
+        background: black;
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+  }
+  .offset {
+    width: 0;
+    min-width: 0;
+  }
+  .content {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .offset-line {
+    display: none;
+  }
+
+  .page-bg {
+    body[data-screen="order"] & {
+      display: none;
+    }
+  }
+}

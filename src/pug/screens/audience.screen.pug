@@ -1,0 +1,56 @@
+<section class="screen" id="audience" data-screen="audience">
+  <div class="container">
+    <div class="offset"></div>
+    <div class="content">
+      <h2 class="h2 screen__title">Аудитория</h2>
+      <div class="statistics slider">
+        .slider(data-slider="statistics" data-type=audience.controls[0].id)
+          <div class="embla">
+            <div class="slider__slides embla__slides">
+              each slide in audience.controls
+                .slide(data-type=slide.id)
+                  if slide.id == 'experience'
+                    include ../statistics/experience.pug
+                  else if slide.id == 'general'
+                    include ../statistics/general.pug
+                  else if slide.id == 'geography'
+                    include ../statistics/geography.pug
+                  else if slide.id == 'langs'
+                    include ../statistics/langs.pug
+                  else if slide.id == 'segments'
+                    include ../statistics/segments.pug
+
+            </div>
+          </div>
+
+          <div class="slider__controls" data-controls>
+            each slide, index in audience.controls
+              .control.upper(data-control=slide.id data-index=index)
+                span #{slide.control}
+          </div>
+
+
+        <div class="accordion" data-accordion>
+          each slide in audience.controls
+            <div class="accordion-section">
+              <div class="accordion-section__header upper" tabindex="0">#{slide.control}</div>
+
+              <div class="accordion-section__content">
+                if slide.id == 'experience'
+                  include ../statistics/experience.pug
+                else if slide.id == 'general'
+                  include ../statistics/general.pug
+                else if slide.id == 'geography'
+                  include ../statistics/geography.pug
+                else if slide.id == 'langs'
+                  include ../statistics/langs.pug
+                else if slide.id == 'segments'
+                  include ../statistics/segments.pug
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

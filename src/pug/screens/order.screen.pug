@@ -1,0 +1,63 @@
+include ../mixin/format.card.mixin.pug
+include ../mixin/order.form.mixin.pug
+
+
+<section id="order" class="screen" data-screen="order">
+  <div class="container">
+    <div class="offset"></div>
+    <div class="content">
+      <h2 class="h2 screen__title">Заказ</h2>
+      <div class="order-sections">
+        <form action="" class="tabs" onsubmit="return false">
+          each format in formats
+            <label class="tab">
+              input(type="radio" name="orderType" value=format.id checked=format.checked)
+
+              <div class="tab__control">
+                <div class="radio">
+                  <span>
+                    <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 0C4.02946 0 0 4.02946 0 9C0 13.9705 4.02946 18 9 18C13.9705 18 18 13.9705 18 9C18 4.02946 13.9705 0 9 0ZM14.3545 6.91433L8.68595 12.5831C8.48732 12.7817 8.21816 12.8933 7.93715 12.8933C7.65614 12.8933 7.38699 12.7819 7.18835 12.5831L3.64532 9.04024C3.23174 8.62666 3.23174 7.95621 3.64532 7.54285C4.05889 7.12948 4.72913 7.12948 5.14271 7.54285L7.93694 10.3371L12.8573 5.41694C13.2704 5.00358 13.9413 5.00358 14.3545 5.41694C14.768 5.83031 14.768 6.50075 14.3545 6.91433Z" fill="#378FF6"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="tab__content">
+                +formatCard(format, "hideButton")
+              </div>
+            </label>
+
+          <label class="tab">
+            <input type="radio" type="radio" name="orderType" value="other">
+            <div class="tab__control">
+              <div class="radio">
+                <span>
+                  <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 0C4.02946 0 0 4.02946 0 9C0 13.9705 4.02946 18 9 18C13.9705 18 18 13.9705 18 9C18 4.02946 13.9705 0 9 0ZM14.3545 6.91433L8.68595 12.5831C8.48732 12.7817 8.21816 12.8933 7.93715 12.8933C7.65614 12.8933 7.38699 12.7819 7.18835 12.5831L3.64532 9.04024C3.23174 8.62666 3.23174 7.95621 3.64532 7.54285C4.05889 7.12948 4.72913 7.12948 5.14271 7.54285L7.93694 10.3371L12.8573 5.41694C13.2704 5.00358 13.9413 5.00358 14.3545 5.41694C14.768 5.83031 14.768 6.50075 14.3545 6.91433Z" fill="#378FF6"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="tab__content">
+              <div class="card">
+                <div class="card__title">У меня есть вопрос/предложение</div>
+                <div class="card__content">
+
+                </div>
+              </div>
+            </div>
+          </label>
+        </form>
+
+        <div class="order-form">
+          <div class="order-form__title">Напишете сегодня - завтра получите предложение!</div>
+
+          +orderForm("native", "")
+          +orderForm("test", "")
+          +orderForm("game", "")
+          +orderForm("other", "")
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

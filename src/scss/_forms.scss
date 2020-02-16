@@ -1,0 +1,80 @@
+@mixin formControl {
+  width: 100%;
+  min-height: 48px;
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  border: 1px solid $colorSecondary;
+  border-radius: 24px;
+  padding: 0 20px;
+  color: $colorForm;
+}
+
+.radio {
+  display: block;
+
+
+
+  span {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #8B92A5;
+    display: block;
+
+    svg {
+      display: none;
+    }
+  }
+
+
+}
+
+input:checked ~ .tab__control {
+  span {
+    border-color: transparent;
+  }
+  span svg {
+    display: block;
+  }
+}
+
+.form-field {
+  display: block;
+
+  margin-bottom: 30px;
+  max-width: 860px;
+
+  &--short {
+    max-width: 460px;
+  }
+}
+
+.form {
+
+  width: 100%;
+
+  &__footer {
+    color: $colorForm;
+    font-size: 0.75rem;
+    margin-top: 30px;
+  }
+}
+
+.input, .textarea {
+  @include formControl;
+}
+
+.textarea {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.invalid-feedback {
+  color: $colorError;
+  font-size: 0.875em;
+
+  &:not(:empty) {
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,82 @@
+.top-menu {
+
+    display: flex;
+    justify-content: flex-end;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin-left: 80px;
+    white-space: nowrap;
+    color: map-get(map-get($topMenu, default), color);
+    &:first-child {
+      margin-left: 0;
+    }
+    &:hover {
+      color: map-get(map-get($topMenu, default), hover);
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+
+  &__toggler {
+    display: none;
+    cursor: pointer;
+    color: map-get(map-get($topMenu, default), color);
+
+    &:hover {
+      color: map-get(map-get($topMenu, default), hover);
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
+}
+
+body.on-hello {
+  .top-menu {
+    &__item, &__toggler {
+      color: map-get(map-get($topMenu, hello), color);
+
+      &:hover {
+        color: map-get(map-get($topMenu, hello), hover);
+      }
+    }
+  }
+}
+
+@include bp(xLargeTop) {
+  .top-menu {
+    &__item {
+      margin-left: 40px;
+    }
+  }
+}
+
+@include bp(xLargeBottom) {
+  .top-menu {
+    &__item {
+      margin-left: 20px;
+    }
+  }
+}
+
+@include bp(largeBottom) {
+  .top-menu {
+
+    &__list {
+      display: none;
+    }
+
+    &__toggler {
+      display: block;
+    }
+
+  }
+
+}

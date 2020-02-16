@@ -1,0 +1,80 @@
+.networks {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  display: flex;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  z-index: 30;
+
+  .network {
+    margin-right: 30px;
+
+    .icon {
+      display: none;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@include bp(xLargeTop) {
+  .networks {
+    bottom: 28px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .networks .network {
+
+    .text {
+      display: none;
+
+    }
+    .icon {
+      display: block;
+      transform: rotate(90deg);
+
+      svg {
+        fill: $colorAccent;
+      }
+    }
+  }
+}
+
+@include bp(mediumBottom) {
+  .page .networks {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: block;
+    padding: 20px;
+    font-size: 0.875rem;
+    font-weight: 300;
+
+    .network {
+      margin-bottom: 20px;
+      margin-right: 0;
+
+      .icon {
+        display: none!important;
+      }
+
+      .text {
+        display: inline!important;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

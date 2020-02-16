@@ -1,0 +1,25 @@
+mixin statItem(data)
+  .stat-item
+    if data.value
+      .stat-item__value #{data.value}
+
+    if data.title
+      .stat-item__title.large !{data.title}
+
+    if data.text
+      .stat-item__text.text !{data.text}
+
+    if data.chart
+      - var chartClass = "chart chart--" + data.id
+      if (data.value)
+        - var chartClass = chartClass + ' chart--small'
+
+      .stat-item__chart
+        .chart(class=chartClass)
+          .chart__img
+            img(src=data.chart.img alt=data.chart.alt)
+            if data.chart.label
+              .chart__label !{data.chart.label}
+          .chart__data
+            each item in data.chart.items
+              .chart__item #{item}

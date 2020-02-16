@@ -1,0 +1,73 @@
+
+$colorAccent: #378FF6;
+$colorText: #515172;
+$colorForm: #8B92A5;
+$colorMain: #000000;
+$colorSecondary: #e2e8f0;
+$colorDark: #333A4D;
+$colorError: #FF0000;
+
+$colorMask: rgba(51, 58, 77, 0.7);
+
+$bgColor: #f8f8f8;
+$lightBgColor: #fefefe;
+
+$gradient: linear-gradient(199.38deg, #378ff6 10.31%, #a276db 83.84%);
+$menuGradient: linear-gradient(208.44deg, #378ff6 21.23%, #a276db 84.61%);
+$bgHeader: rgba(255, 255, 255, 0.7);
+
+$fontBase: 'Roboto', sans-serif;
+$fontHeader: 'Futura Md BT', 'Roboto', sans-serif;
+$fontSecondary: 'PT Sans', 'Roboto', sans-serif;
+
+$topMenu: (
+  default: (
+    color: $colorDark,
+    hover: $colorDark
+  ),
+  hello: (
+    color: white,
+    hover: white
+  )
+);
+
+$breakpoints: (
+  xLargeTop: 1920px,
+  xLargeBottom: 1440px,
+  largeBottom: 1280px,
+  mediumBottom: 960px,
+  mobileTwo: 680px,
+  mobileOne: 440px,
+);
+
+$charts: (
+  young: (1: #D2AACC, 2: #E9B95D),
+  students: (1: #76DB89, 2: #89EEE8),
+  countries: (1: #82B8F6, 2: #CC94DF, 3: #FD8FA3, 4: #B6F5F2),
+  cities: (1: #D1F682,  2: #F9CA9E, 3: #A4C9CB, 4: #D0C9FF, 5: #FFC9C9),
+  experience: (1: #CC94DF,2: #EDE86A,3: #82B8F6,4: #FFBE71,5: #B6F5F2),
+  spec: (1:#EC8CAE,2:#FAC560,3:#CAF682,4:#71FFD4,5:#71BBFF,6:#A987F1,7:#9C747E,8:#EBEBEB),
+);
+
+$langs: (
+  python: (#82B8F6, 323px, 280px),
+  js: (#CC94DF, 253px, 220px),
+  java: (#FFC672, 203px, 176px),
+  cpp: (#C0ED9C, 173px, 150px),
+  csharp: (#FF7089, 143px, 143px),
+  php: (#DFE18B, 107px, 112px)
+);
+
+@mixin cols($count, $total) {
+  width: 100% / $total * $count;
+}
+
+@mixin offset-right($count, $total) {
+  margin-right: 100% / $total * $count;
+}
+
+@mixin bp($breakpointName) {
+  @media screen and (max-width: map-get($breakpoints, $breakpointName)) {
+    @content;
+  }
+}

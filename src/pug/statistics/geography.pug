@@ -1,0 +1,5 @@
+include ../mixin/stat.item.mixin.pug
+
+.flex.flex-wrap.stats.stats--geography
+  each item in audience.geography
+    +statItem(item)

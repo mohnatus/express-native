@@ -1,0 +1,13 @@
+mixin formatCard(format, hideButton)
+  .card
+    .card__title #{format.title}
+    .card__content
+      .card__text.text #{format.text}
+
+      each prop in format.props
+        .card__prop #{prop}
+
+      .card__price.large #{format.price}
+
+      if !hideButton
+        button.btn(type="button" data-to-order=format.id) #{format.button}

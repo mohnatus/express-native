@@ -1,0 +1,99 @@
+.page-header {
+  position: fixed;
+
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  padding-right: 50px;
+
+  background-color: $bgHeader;
+
+  &__logo {
+    @include cols(2, 12);
+    padding-left: 50px;
+  }
+
+  .logo {
+    display: block;
+  }
+
+  &__brand {
+    @include cols(3, 12);
+  }
+
+  &__menu {
+    @include cols(7, 12);
+  }
+
+  .container {
+    align-items: center;
+  }
+
+  body.on-hello &,
+  body[data-screen="order"] & {
+    // background-color: transparent;
+  }
+}
+
+@include bp(xLargeTop) {
+  .page-header {
+    padding-right: 70px;
+    &__logo {
+      width: auto;
+      margin-right: 40px;
+    }
+    &__brand {
+      width: auto;
+    }
+    &__menu {
+      width: auto;
+      flex-grow: 1;
+    }
+  }
+}
+
+@include bp(xLargeTop) {
+  .page-header {
+    padding-right: 40px;
+  }
+}
+
+@include bp(largeTop) {
+  .page-header {
+    padding-right: 30px;
+  }
+}
+
+@include bp(mediumBottom) {
+  .page-header {
+    padding: 20px;
+    &__logo {
+      padding-left: 0;
+    }
+    .logo {
+      margin-left: 0px;
+      margin-bottom: 10px;
+    }
+    .brand {
+      margin-left: 34px;
+    }
+
+    .container {
+      display: block;
+      position: relative;
+    }
+
+    &__menu {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+  }
+
+
+}

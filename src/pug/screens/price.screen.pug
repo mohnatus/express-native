@@ -1,0 +1,17 @@
+include ../mixin/format.card.mixin.pug
+
+<section id="price" class="screen" data-screen="price">
+  <div class="container">
+    <div class="offset"></div>
+    <div class="content">
+      <h2 class="h2 screen__title">Форматы и стоимость</h2>
+      <div class="price-list">
+        each format in formats
+          +formatCard(format)
+      </div>
+      <p class="large price-info">
+        |Мы открыты к диалогу в рамках уникальных пожеланий и любых вопросов.&nbsp;<br>Пишите на <a href="mailto:user@mail.ru">user@mail.ru</a> и мы договоримся!
+      </p>
+    </div>
+  </div>
+</section>

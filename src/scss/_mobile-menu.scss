@@ -1,0 +1,106 @@
+.mobile-menu {
+  display: none;
+}
+
+@include bp(largeBottom) {
+  .mobile-menu {
+
+
+      display: none;
+      z-index: 40;
+      background: $colorMask;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+
+      right: 0;
+      left: 0;
+      font-size: 0.875rem;
+
+    &__mask {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      cursor: pointer;
+    }
+
+    &__content {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 40px;
+      padding-top: 40px;
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 320px;
+      background: $menuGradient;
+      color: white;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &__list {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+    }
+
+    &__title {
+      margin-bottom: 40px;
+        font-family: $fontHeader;
+        font-size: 1.125rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    &__item {
+      margin-bottom: 40px;
+      margin-left: 0;
+      color: white;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__toggler {
+      display: block;
+      color: white;
+      line-height: 1;
+      font-size: 0;
+      padding: 10px;
+
+      position: absolute;
+      top: 40px;
+      right: 10px;
+
+      cursor: pointer;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+
+    &.opened {
+      display: block;
+    }
+
+
+  }
+}
+
+@include bp(mediumBottom) {
+  .mobile-menu {
+    &__content {
+      width: 100%;
+      bottom: auto;
+    }
+  }
+}

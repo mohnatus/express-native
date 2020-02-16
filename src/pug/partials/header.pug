@@ -1,0 +1,21 @@
+
+
+header.page-header
+  .container
+    .page-header__logo
+      a.logo(href="#")
+        img(src="img/logo.png", width="160")
+    .page-header__brand
+      a.brand.upper(href=appLink) Proglib.io
+    .page-header__menu
+      nav.top-menu
+        ul.top-menu__list
+          each item in menu
+            li.top-menu__item(class=item.active ? "active" : "")
+              a.upper(href="#" + item.id)= item.text
+
+        .top-menu__toggler
+          <svg width="30" height="11" viewBox="0 0 30 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="30" height="3" rx="1.5" />
+            <rect x="13" y="8" width="17" height="3" rx="1.5"/>
+          </svg>

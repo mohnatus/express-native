@@ -1,0 +1,37 @@
+.page-footer {
+  position: fixed;
+  right: 50px;
+  bottom: 46px;
+  z-index: 19;
+  color: $colorDark;
+
+  body.on-hello & {
+    color: white;
+  }
+}
+
+@include bp(xLargeBottom) {
+  .page-footer {
+    right: 70px;
+  }
+}
+
+@include bp(xLargeBottom) {
+  .page-footer {
+    right: 40px;
+  }
+}
+
+@include bp(largeBottom) {
+  .page-footer {
+    right: 30px;
+  }
+}
+
+@include bp(mediumBottom) {
+  .page-footer {
+    position: static;
+    padding: 0 20px 20px;
+    font-size: 0.875rem;
+  }
+}

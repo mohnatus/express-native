@@ -1,0 +1,36 @@
+section.screen#hello(data-screen="hello")
+  include ../partials/hello.bg.pug
+  include ../partials/hello.bg.small.pug
+  include ../partials/hello.bg.mobile.pug
+
+  .container
+    .offset
+    .content
+      .hello-content
+        .hello-img
+
+        .hello-slider.slider(data-slider="hello" data-type=formats[0].id)
+
+          h1.h1.screen__title
+            each format in formats
+              span(data-show=format.id) #{format.hello.title}
+
+          .embla
+            .slider__slides.embla__container(data-slides)
+              each format in formats
+                .slide.embla__slide(data-type=format.id data-text=format.hello.button)
+                  p.large !{format.hello.text}
+                  p.text !{format.hello.description}
+
+          .slider__dots(data-controls)
+            each format, index in formats
+              .dot(data-control=format.id data.index=index)
+
+          .slider__block
+            each format in formats
+              div(data-show=format.id)
+                button.btn(data-to-order=format.id) #{format.hello.button}
+
+          .slider__controls(data-controls)
+            each format, index in formats
+              .control.upper(data-control=format.id data-index=index) #{format.title}

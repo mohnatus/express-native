@@ -1,0 +1,253 @@
+.statistics {
+	padding-right: 70px;
+
+	.slider__slides {
+		min-height: 500px;
+		padding-bottom: 40px;
+	}
+
+	&-info {
+		@include cols(7, 10);
+	}
+
+	.accordion {
+		display: none;
+	}
+}
+
+.stats--general {
+	margin-bottom: 70px;
+	margin-top: 70px;
+	.stat-item {
+		@include cols(3, 10);
+		padding-right: 65px;
+	}
+}
+
+.stats--segments {
+	.stat-item {
+		&__text {
+			max-width: 650px;
+		}
+
+		&:first-child {
+			@include cols(4, 10);
+			@include offset-right(1, 10);
+		}
+
+		&:last-child {
+			@include cols(3, 10);
+		}
+	}
+}
+
+.stats--geography,
+.stats--experience {
+	.stat-item:first-child {
+		margin-right: 120px;
+	}
+}
+
+.slider[data-slider='statistics'] {
+	&[data-type='general'] .control[data-control='general'],
+	&[data-type='segments'] .control[data-control='segments'],
+	&[data-type='geography'] .control[data-control='geography'],
+	&[data-type='langs'] .control[data-control='langs'],
+	&[data-type='experience'] .control[data-control='experience'] {
+		text-decoration: underline;
+	}
+
+	.slide {
+		height: 0;
+
+		&.is-selected {
+			height: auto;
+		}
+	}
+}
+
+@include bp(xLargeTop) {
+	.statistics {
+		&-info {
+			@include cols(7, 9);
+		}
+	}
+
+	.stats--general {
+		justify-content: space-between;
+		.stat-item {
+			width: auto;
+			max-width: 30%;
+			padding-right: 20px;
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+
+	.stats--segments {
+		.stat-item {
+			&__text {
+				max-width: 650px;
+			}
+
+			&:first-child {
+				@include cols(4, 9);
+				@include offset-right(1, 10);
+			}
+
+			&:last-child {
+				@include cols(3, 10);
+			}
+		}
+	}
+}
+
+@include bp(xLargeBottom) {
+	.statistics {
+		&-info {
+			width: auto;
+		}
+	}
+
+	.stats--segments {
+		.stat-item {
+			&__text {
+				max-width: 650px;
+			}
+
+			&:first-child {
+				@include cols(4.5, 8);
+				margin: 0;
+			}
+
+			&:last-child {
+				@include cols(3.5, 8);
+			}
+		}
+	}
+
+	.stats--geography,
+	.stats--experience {
+		.stat-item:first-child {
+			margin-right: 80px;
+		}
+	}
+}
+
+@include bp(largeBottom) {
+	.stats--general {
+		margin-bottom: 0;
+
+		.stat-item {
+			@include cols(1, 2);
+			padding-right: 20px;
+			max-width: none;
+			margin-bottom: 40px;
+		}
+	}
+
+	.stats--segments,
+	.stats--geography,
+	.stats--experience {
+		.stat-item {
+			&__value {
+				margin-bottom: 30px;
+			}
+
+			&__text {
+				max-width: 730px;
+			}
+
+			&:first-child,
+			&:last-child {
+				margin-bottom: 80px;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@include bp(mediumBottom) {
+	.statistics {
+		padding: 0;
+		margin-left: -20px;
+		margin-right: -20px;
+
+		.slider {
+			display: none;
+		}
+		.accordion {
+			display: block;
+
+			&-section {
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+
+				&__header {
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		&-info {
+			font-size: 0.875rem;
+		}
+	}
+
+	.stats--general {
+		margin-top: 0;
+		.stat-item {
+			width: 100%;
+			padding-right: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	.stats--segments,
+	.stats--experience {
+		.stat-item {
+			&__value {
+				margin-bottom: 10px;
+			}
+			&:first-child {
+				margin-bottom: 20px;
+			}
+			&:last-child {
+				margin-bottom: 0px;
+			}
+		}
+	}
+
+	.stats--geography,
+	.stats--experience {
+		.stat-item {
+			&,
+			&:first-child,
+			&:last-child {
+				margin-right: 0;
+				margin-bottom: 0;
+			}
+
+			&:first-child {
+				.chart {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+	.accordion {
+		&-section.is-active {
+			background: white;
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
